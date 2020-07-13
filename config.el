@@ -2,6 +2,9 @@
 
 (setq doom-theme 'doom-acario-dark)
 
+;; Set fringe to default (8px) size to make breakpoints visible.
+(fringe-mode nil)
+
 (global-unset-key (kbd "C-x f")) ;; fill-column
 
 (use-package! projectile
