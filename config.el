@@ -26,6 +26,17 @@
   :config
   (guru-global-mode))
 
+(use-package! god-mode
+  :bind (("<escape>" . god-mode-all)
+         ("C-x C-1" . delete-other-windows)
+         ("C-x C-2" . split-window-below)
+         ("C-x C-3" . split-window-right)
+         ("C-x C-0" . delete-window))
+  :init
+  (setq god-mode-enable-function-key-translation nil)
+  :config
+  (add-to-list 'god-exempt-major-modes 'vterm-mode))
+
 (use-package! clang-format
   :bind
   (:map c-mode-map
@@ -52,7 +63,7 @@
   (setq dap-auto-configure-features '(sessions locals breakpoints))
   (dap-auto-configure-mode)
   (add-hook 'dap-stopped-hook
-            (lambda () (call-interactively #'dap-hydra)))
+            (lambda (arg) (call-interactively #'dap-hydra)))
   :bind
   (("C-<f5>" . dap-debug-last)))
 
