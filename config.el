@@ -6,6 +6,7 @@
 (fringe-mode nil)
 
 (global-unset-key (kbd "C-x f")) ;; fill-column
+(global-unset-key (kbd "C-/")) ;; undo
 
 (use-package! projectile
   :bind (("<f5>" . projectile-run-project)
