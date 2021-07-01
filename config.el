@@ -8,7 +8,12 @@
 (global-unset-key (kbd "C-x f")) ;; fill-column
 (global-unset-key (kbd "C-/")) ;; undo
 
+(setq enable-local-variables t)
+(setq enable-local-eval t)
+
 (use-package! projectile
+  :init
+  (setq projectile-enable-cmake-presets t)
   :bind (("<f5>" . projectile-run-project)
          ("<f6>" . projectile-compile-project)
          ("<f7>" . projectile-test-project)))
