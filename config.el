@@ -2,9 +2,6 @@
 
 (setq doom-theme 'doom-acario-dark)
 
-;; Set fringe to default (8px) size to make breakpoints visible.
-(fringe-mode nil)
-
 (global-unset-key (kbd "C-x f")) ;; fill-column
 (global-unset-key (kbd "C-/")) ;; undo
 
@@ -70,6 +67,9 @@
   (dap-auto-configure-mode)
   (add-hook 'dap-stopped-hook
             (lambda (arg) (call-interactively #'dap-hydra)))
+  ;; Set fringe to default (8px) size to make breakpoints visible.
+  (add-hook 'dap-mode-hook
+            (lambda () (fringe-mode nil)))
   :bind
   (("C-<f5>" . dap-debug-last)))
 
