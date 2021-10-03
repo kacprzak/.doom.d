@@ -13,7 +13,9 @@
   (setq projectile-enable-cmake-presets t)
   :bind (("<f5>" . projectile-run-project)
          ("<f6>" . projectile-compile-project)
-         ("<f7>" . projectile-test-project)))
+         ("<f7>" . projectile-test-project))
+  :bind-keymap
+  ("s-p" . projectile-command-map))
 
 (use-package! key-chord
   :config
@@ -51,7 +53,10 @@
 
 (use-package! lsp-mode
   :config
-  (setq lsp-symbol-highlighting-skip-current t))
+  (setq lsp-symbol-highlighting-skip-current t)
+  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+  :bind-keymap
+  ("s-l" . lsp-command-map))
 
 (setq-default flycheck-disabled-checkers '(c/c++-gcc))
 
