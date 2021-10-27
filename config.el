@@ -1,12 +1,11 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-(setq doom-theme 'doom-acario-dark)
+(setq doom-theme 'doom-molokai)
 
 (global-unset-key (kbd "C-x f")) ;; fill-column
 (global-unset-key (kbd "C-/")) ;; undo
 
 (setq enable-local-variables t)
-(setq enable-local-eval t)
 
 (use-package! projectile
   :init
@@ -30,17 +29,6 @@
   :diminish guru-mode
   :config
   (guru-global-mode))
-
-(use-package! god-mode
-  :bind (("<escape>" . god-mode-all)
-         ("C-x C-1" . delete-other-windows)
-         ("C-x C-2" . split-window-below)
-         ("C-x C-3" . split-window-right)
-         ("C-x C-0" . delete-window))
-  :init
-  (setq god-mode-enable-function-key-translation nil)
-  :config
-  (add-to-list 'god-exempt-major-modes 'vterm-mode))
 
 (use-package! clang-format
   :bind
