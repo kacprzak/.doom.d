@@ -16,6 +16,14 @@
   :bind-keymap
   ("s-p" . projectile-command-map))
 
+(use-package! centaur-tabs
+  :bind (("C-<left>" . centaur-tabs-backward)
+         ("C-<right>" . centaur-tabs-forward)
+         ("C-<up>" . centaur-tabs-backward-group)
+         ("C-<down>" . centaur-tabs-forward-group))
+  :config
+  (centaur-tabs-mode t))
+
 (use-package! key-chord
   :config
   (key-chord-mode t)
