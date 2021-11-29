@@ -5,4 +5,3 @@
 (package! guru-mode)
 (package! clang-format)
 (package! dap-mode)
-(package! key-chord)
