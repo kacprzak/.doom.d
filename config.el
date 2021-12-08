@@ -33,9 +33,8 @@
 (use-package! lsp-mode
   :config
   (setq lsp-symbol-highlighting-skip-current t)
-  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
-  :bind-keymap
-  ("s-l" . lsp-command-map))
+  (setq lsp-ui-doc-position 'top)
+  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
 
 (setq-default flycheck-disabled-checkers '(c/c++-gcc))
 
