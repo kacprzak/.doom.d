@@ -21,6 +21,8 @@
   :config
   (guru-global-mode))
 
+(use-package! glsl-mode)
+
 (use-package! clang-format
   :bind
   (:map c-mode-map
@@ -31,9 +33,11 @@
    ("C-M-\\" . clang-format-buffer)))
 
 (use-package! lsp-mode
+  :custom
+  (lsp-ui-doc-enable nil)
+  (lsp-ui-doc-position 'top)
   :config
   (setq lsp-symbol-highlighting-skip-current t)
-  (setq lsp-ui-doc-position 'top)
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
 
 (setq-default flycheck-disabled-checkers '(c/c++-gcc))
@@ -54,7 +58,8 @@
   (add-hook 'dap-mode-hook
             (lambda () (fringe-mode nil)))
   :bind
-  (("C-<f5>" . dap-debug-last)))
+  (("<f5>" . dap-debug)
+   ("C-<f5>" . dap-debug-last)))
 
 (defun my/kill-current-buffer ()
   "Kill current buffer."
