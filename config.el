@@ -23,15 +23,6 @@
 
 (use-package! glsl-mode)
 
-(use-package! clang-format
-  :bind
-  (:map c-mode-map
-   ("C-M-\\" . clang-format-buffer)
-   :map c++-mode-map
-   ("C-M-\\" . clang-format-buffer)
-   :map glsl-mode-map
-   ("C-M-\\" . clang-format-buffer)))
-
 (use-package! lsp-mode
   :custom
   (lsp-ui-doc-enable nil)
