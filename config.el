@@ -40,7 +40,7 @@
   (require 'dap-lldb)
   (require 'dap-python)
   :config
-  (setq dap-lldb-debug-program '("/usr/bin/lldb-vscode-10"))
+  (setq dap-lldb-debug-program '("/usr/bin/lldb-vscode"))
   (setq dap-auto-configure-features '(sessions locals breakpoints))
   (dap-auto-configure-mode)
   (add-hook 'dap-stopped-hook
