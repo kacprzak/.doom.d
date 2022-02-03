@@ -5,3 +5,4 @@
 (package! guru-mode)
 (package! glsl-mode)
 (package! dap-mode)
+(package! meson-mode)

@@ -22,6 +22,7 @@
   (guru-global-mode))
 
 (use-package! glsl-mode)
+(use-package! meson-mode)
 
 (use-package! lsp-mode
   :custom
@@ -32,6 +33,7 @@
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
 
 (setq-default flycheck-disabled-checkers '(c/c++-gcc))
+(setq-default company-global-modes '(not message-mode eshell-mode))
 
 (use-package! dap-mode
   :after lsp-mode
