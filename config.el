@@ -5,8 +5,6 @@
 (global-unset-key (kbd "C-x f")) ;; fill-column
 (global-unset-key (kbd "C-/")) ;; undo
 
-(setq enable-local-variables t)
-
 (use-package! projectile
   :init
   (setq projectile-enable-cmake-presets t)
@@ -28,12 +26,14 @@
   :custom
   (lsp-ui-doc-enable nil)
   (lsp-ui-doc-position 'top)
-  :config
-  (setq lsp-symbol-highlighting-skip-current t)
-  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
+  (lsp-enable-snippet nil)
+  (lsp-symbol-highlighting-skip-current t)
+  :hook
+  (lsp-mode-hook . lsp-enable-which-key-integration))
 
 (setq-default flycheck-disabled-checkers '(c/c++-gcc))
 (setq-default company-global-modes '(not message-mode eshell-mode))
+(setq-default which-key-idle-delay 0.2)
 
 (use-package! dap-mode
   :after lsp-mode
@@ -43,23 +43,10 @@
   (require 'dap-python)
   :config
   (setq dap-lldb-debug-program '("/usr/bin/lldb-vscode"))
-  (setq dap-auto-configure-features '(sessions locals breakpoints))
   (dap-auto-configure-mode)
-  (add-hook 'dap-stopped-hook
-            (lambda (arg) (call-interactively #'dap-hydra)))
-  ;; Set fringe to default (8px) size to make breakpoints visible.
-  (add-hook 'dap-mode-hook
-            (lambda () (fringe-mode nil)))
   :bind
   (("<f5>" . dap-debug)
    ("C-<f5>" . dap-debug-last)))
-
-(defun my/kill-current-buffer ()
-  "Kill current buffer."
-  (interactive)
-  (kill-buffer (current-buffer)))
-
-(global-set-key (kbd "C-x k") 'my/kill-current-buffer)
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (if (file-exists-p custom-file)
