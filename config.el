@@ -14,11 +14,6 @@
   :bind-keymap
   ("s-p" . projectile-command-map))
 
-(use-package! guru-mode
-  :diminish guru-mode
-  :config
-  (guru-global-mode))
-
 (use-package! glsl-mode)
 (use-package! meson-mode)
 
