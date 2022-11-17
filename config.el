@@ -2,6 +2,7 @@
 
 (setq doom-theme 'doom-horizon)
 (setq doom-themes-treemacs-enable-variable-pitch nil)
+(setq display-line-numbers-type 'relative)
 
 (global-unset-key (kbd "C-x f")) ;; fill-column
 (global-unset-key (kbd "C-/")) ;; undo
