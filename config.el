@@ -1,18 +1,25 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-(setq doom-theme 'doom-molokai)
+(setq doom-theme 'doom-horizon)
+(setq doom-themes-treemacs-enable-variable-pitch nil)
 
 (global-unset-key (kbd "C-x f")) ;; fill-column
 (global-unset-key (kbd "C-/")) ;; undo
 
+(blink-cursor-mode 1)
+(treemacs-project-follow-mode 1)
+
 (use-package! projectile
   :init
   (setq projectile-enable-cmake-presets t)
-  :bind (("<f5>" . projectile-run-project)
-         ("<f6>" . projectile-compile-project)
+  :bind (("<f6>" . projectile-compile-project)
          ("<f7>" . projectile-test-project))
   :bind-keymap
   ("s-p" . projectile-command-map))
+
+(use-package! dirvish
+  :init
+  (dirvish-override-dired-mode))
 
 (use-package! glsl-mode)
 (use-package! meson-mode)

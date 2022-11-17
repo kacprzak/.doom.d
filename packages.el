@@ -5,3 +5,4 @@
 (package! glsl-mode)
 (package! dap-mode)
 (package! meson-mode)
+(package! dirvish)
