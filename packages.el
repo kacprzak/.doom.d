@@ -6,3 +6,5 @@
 (package! dap-mode)
 (package! meson-mode)
 (package! dirvish)
+
+(unpin! projectile)

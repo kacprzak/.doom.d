@@ -9,10 +9,11 @@
 
 (blink-cursor-mode 1)
 (treemacs-project-follow-mode 1)
+(pixel-scroll-precision-mode 1)
 
 (use-package! projectile
-  :init
-  (setq projectile-enable-cmake-presets t)
+  :custom
+  (projectile-enable-cmake-presets t)
   :bind (("<f6>" . projectile-compile-project)
          ("<f7>" . projectile-test-project))
   :bind-keymap
@@ -45,7 +46,7 @@
   (require 'dap-lldb)
   (require 'dap-python)
   :config
-  (setq dap-lldb-debug-program '("/usr/bin/lldb-vscode"))
+  (setq dap-lldb-debug-program '("/usr/bin/lldb-dap"))
   (dap-auto-configure-mode)
   :bind
   (("<f5>" . dap-debug)
